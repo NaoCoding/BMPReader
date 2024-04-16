@@ -30,12 +30,16 @@ function setup(){
   authorDiv = createElement("h3","Author : Andy Lu")
   
   InfoShow = createElement("h3","<br><br>Show BMP Info (14 + 40 header)")
+  
   fileInput = createFileInput(file => {
     const reader = new FileReader();
+    
+    
     reader.onload = e => {
       var arr = new Uint8Array(e.target.result)
       target = new BMP(arr)
-      infoDiv = createElement("div")
+      
+      infoDiv.html("")
       infoDiv.html("<br>File : "+target.file,1)
       infoDiv.html("<br>File Size : "+target.filesize,1)
       infoDiv.html("<br>File Reserved : "+target.reserve,1)
@@ -57,4 +61,5 @@ function setup(){
     };
     reader.readAsArrayBuffer(file.file);
   });
+  infoDiv = createElement("div")
 }
