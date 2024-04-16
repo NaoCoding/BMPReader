@@ -40,6 +40,8 @@ function setup(){
       target = new BMP(arr)
       
       infoDiv.html("")
+      if(target.file != "BM")infoDiv.html("<br>Wrong File Format ! <br> ( Magic Number != BM )",1)
+      else{
       infoDiv.html("<br>File : "+target.file,1)
       infoDiv.html("<br>File Size : "+target.filesize,1)
       infoDiv.html("<br>File Reserved : "+target.reserve,1)
@@ -55,6 +57,7 @@ function setup(){
       infoDiv.html("<br>ypixel : "+target.ypixel,1)
       infoDiv.html("<br>Color Used : "+target.colorused,1)
       infoDiv.html("<br>Important Color : "+target.importantcolor,1)
+      }
 
 
       
